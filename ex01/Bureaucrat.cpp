@@ -86,3 +86,14 @@ void	Bureaucrat::downGrade(void)
 		return ;
 	_grade++;
 }
+
+void	Bureaucrat::signForm(Form &form) const
+{
+	std::cout << _name;
+	if (form.getSigned())
+		std::cout << " cannot sign " << form.getName() << " beacause it's already signed." << std::endl;
+	else if (_grade > form.getGradeSign())
+		std::cout << " cannot sign " << form.getName() << " beacause his grade is too low." << std::endl;
+	else
+		std::cout << " signs " << form.getName() << std::endl;
+}
