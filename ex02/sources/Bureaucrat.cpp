@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 06:42:04 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/24 10:22:44 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/12/24 10:41:32 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &bureaucrat)
 
 std::ostream	&operator<<(std::ostream &o, const Bureaucrat &bureaucrat)
 {
-	o << YELLOW << bureaucrat.getName() << END << ", grade " << bureaucrat.getGrade();
+	o << bureaucrat.getName() << ", grade " << bureaucrat.getGrade();
 	return (o);
 }
 
@@ -97,5 +97,18 @@ void	Bureaucrat::signForm(Form &form) const
 	catch(const std::exception &e)
 	{
 		std::cout << YELLOW << _name << END << " cannot sign " << GREEN << form.getName() << END <<  " because " << BLUE << e.what() << END << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(const Form &form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << YELLOW << _name << END << " executes " << GREEN << form.getName() << END << std::endl;
+	}
+	catch(const std::exception &e)
+	{
+		std::cout << YELLOW << _name << END << " cannot executes " << GREEN << form.getName() << END <<  " because " << BLUE << e.what() << END << std::endl;
 	}
 }

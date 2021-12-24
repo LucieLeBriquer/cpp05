@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 07:47:01 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/24 07:47:01 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/12/24 08:55:59 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,12 @@ void	Form::beSigned(const Bureaucrat &bureaucrat)
 	if (bureaucrat.getGrade() > _gradeSign)
 		throw GradeTooLowException();
 	_signed = true;
+}
+
+void	Form::executeCheck(const Bureaucrat &bureaucrat) const
+{
+	if (!this->getSigned())
+		throw Form::ExecuteNotSigned();
+	if (this->getGradeExec() < bureaucrat.getGrade())
+		throw Form::GradeTooLowException();
 }

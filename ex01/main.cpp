@@ -12,31 +12,8 @@
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
-#include <iomanip>
 
-static void     printTitle(std::string title)
-{
-        std::string     toPrint;
-        int     size = 54;
-        int     n;
-
-        toPrint = " " + title + " ";
-        n = toPrint.size();
-        if (n > size)
-        {
-                toPrint = toPrint.substr(0, size - 2);
-                toPrint[size - 4] = '.';
-                toPrint[size - 3] = ' ';
-                n = toPrint.size();
-        }
-        std::cout << std::endl << std::setfill('=') << std::setw(size) << "" << std::endl;
-        std::cout << std::setw(size / 2) << toPrint.substr(0, n / 2);
-        std::cout << toPrint.substr(n / 2, n - n / 2);
-        std::cout << std::setfill('=') << std::setw(size - size / 2 - n + n / 2) << "" << std::endl;
-        std::cout << std::setfill('=') << std::setw(size) << "" << std::endl;
-}
-
-void	test(int exception)
+int	main(void)
 {
 	Form 		f("formular", 10, 4);
 	Bureaucrat	bob("Bob", 11);
@@ -44,36 +21,11 @@ void	test(int exception)
 	std::cout << f << std::endl;
 	std::cout << bob << std::endl;
 	
-	if (exception == 0)
-		f.beSigned(bob);
+	bob.signForm(f);
 	bob.upGrade();
-	f.beSigned(bob);
-	std::cout << f << std::endl;
-	f.beSigned(bob);
-}
+	bob.signForm(f);
 
-int	main(void)
-{
-	printTitle("TRY 0");
-	try 
-	{
-		test(0);
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	printTitle("TRY 1");
-	try
-	{
-		test(1);
-	}
-	catch(const std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	
+	std::cout << std::endl << f << std::endl;
 
 	return (0);
 }
