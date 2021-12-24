@@ -3,14 +3,14 @@ RM			= rm -rf
 NAME		= ./bureaucrat
 NAME_SHORT	= bureaucrat
 
-INCS_DIR	= ./includes/
+INCS_DIR	= ./
 MAIN_INC	= -I$(INCS_DIR)
 INCS		= $(shell find $(INCS_DIR) -type f -name "*.hpp")
 
-SRCS_DIR 	= ./sources/
+SRCS_DIR 	= ./
 SRCS		= $(shell find $(SRCS_DIR) -type f -name "*.cpp")
 
-OBJS_DIR	= ./objects/
+OBJS_DIR	= ./
 OBJS		= $(SRCS:$(SRCS_DIR)%.cpp=$(OBJS_DIR)%.o)
 
 _COLOR		= \033[32m
@@ -32,7 +32,7 @@ $(NAME)		: $(OBJS) $(INCS)
 			@echo "$(_OK) $(NAME_SHORT) compiled"
 
 clean		:
-			@$(RM) $(OBJS_DIR)
+			@$(RM) $(OBJS)
 
 fclean		: clean
 			@$(RM) $(NAME)
