@@ -17,13 +17,13 @@
 */
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) :
-	Form("Shrubbery", 145, 137), _target("unknown")
+	Form("Shrubbery creation", 145, 137), _target("unknown")
 {
 	return ;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) :
-	Form("Shrubbery", 145, 137), _target(target)
+	Form("Shrubbery creation", 145, 137), _target(target)
 {
 	return ;
 }

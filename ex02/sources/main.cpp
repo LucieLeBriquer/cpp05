@@ -13,12 +13,13 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <iomanip>
 
 static void     printTitle(std::string title)
 {
         std::string     toPrint;
-        int     size = 60;
+        int     size = 68;
         int     n;
 
         toPrint = " " + title + " ";
@@ -40,7 +41,9 @@ static void     printTitle(std::string title)
 
 int	main(void)
 {
-	printTitle("Shrubbery");
+	srand(time(NULL));
+
+	printTitle("Shrubbery Creation");
 	ShrubberyCreationForm	shrub("home");
 	Bureaucrat				bob("Bob", 1);
 	Bureaucrat				me("Lucie", 140);
@@ -52,12 +55,24 @@ int	main(void)
 	bob.executeForm(shrub);
 	me.executeForm(shrub);
 
-	printTitle("Robotomy");
+	printTitle("Robotomy Request");
 	RobotomyRequestForm		robotomy("correcteur");
 	Bureaucrat				me2("Lucie", 1);
 	me2.executeForm(robotomy);
 	me2.signForm(robotomy);
 	me2.executeForm(robotomy);
+	me2.executeForm(robotomy);
+	me2.executeForm(robotomy);
+	me2.executeForm(robotomy);
 	
+	printTitle("Presidential Pardon");
+	PresidentialPardonForm		presidential("correcteur");
+	Bureaucrat					me3("Lucie", 6);
+	me3.executeForm(presidential);
+	me3.signForm(presidential);
+	me3.executeForm(presidential);
+	me3.upGrade();
+	me3.executeForm(presidential);
+
 	return (0);
 }

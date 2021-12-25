@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 11:01:58 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/24 11:01:58 by lle-briq         ###   ########.fr       */
+/*   Created: 2021/12/25 16:41:16 by lle-briq          #+#    #+#             */
+/*   Updated: 2021/12/25 16:41:16 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 /*
 **		CONSTRUCTORS AND DESTRUCTOR
 */
 
-RobotomyRequestForm::RobotomyRequestForm(void) :
-	Form("Robotomy request", 72, 45), _target("unknown")
+PresidentialPardonForm::PresidentialPardonForm(void) :
+	Form("Presidential pardon", 25, 5), _target("unknown")
 {
 	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string target) :
-	Form("Robotomy request", 72, 45), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) :
+	Form("Presidential pardon", 25, 5), _target(target)
 {
 	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &robotomy)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &presidential)
 {
-	*this = robotomy;
+	*this = presidential;
 }
 
-RobotomyRequestForm::~RobotomyRequestForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 	return ;
 }
@@ -42,13 +42,13 @@ RobotomyRequestForm::~RobotomyRequestForm()
 **		OVERLOAD OPERATORS
 */
 
-RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &robotomy)
+PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &presidential)
 {
-	(void)robotomy;
+	(void)presidential;
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &o, const RobotomyRequestForm &form)
+std::ostream	&operator<<(std::ostream &o, const PresidentialPardonForm &form)
 {
 	o << "[" << form.getName() << "]" << std::endl;
 	o << "\t" << "signed : " << form.getSigned() << std::endl;
@@ -62,21 +62,13 @@ std::ostream	&operator<<(std::ostream &o, const RobotomyRequestForm &form)
 **		MEMBER FUNCTIONS
 */
 
-void	RobotomyRequestForm::execute(const Bureaucrat &bureaucrat) const
+void	PresidentialPardonForm::execute(const Bureaucrat &bureaucrat) const
 {
-	int	robotomized;
-
 	this->Form::executeCheck(bureaucrat);
-	std::cout << "*rizZzzz BzzZz rZz* ";
-	robotomized = rand() % 2;
-	if (robotomized)
-		std::cout << PURPLE << _target << END << " was robotomized" << std::endl;
-	else
-		std::cout << PURPLE << _target << END << " was not robotomized" << std::endl;
-	
+	std::cout << PURPLE << _target << END << " was forgiven by Zafor Beeblebrox" << std::endl;
 }
 
-const std::string	RobotomyRequestForm::getTarget(void) const
+const std::string	PresidentialPardonForm::getTarget(void) const
 {
 	return (_target);
 }
