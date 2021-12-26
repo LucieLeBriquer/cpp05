@@ -32,7 +32,12 @@ $(NAME)		: $(OBJS) $(INCS)
 			@echo "$(_OK) $(NAME_SHORT) compiled"
 
 clean		:
-			@$(RM) $(OBJS) *_shrubbery
+ifeq ($(OBJS_DIR), ./)
+			@$(RM) $(OBJS)
+else
+			@$(RM) $(OBJS_DIR)
+endif
+			@$(RM) *_shrubbery
 
 fclean		: clean
 			@$(RM) $(NAME)
