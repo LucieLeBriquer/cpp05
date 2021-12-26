@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 07:23:49 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/24 11:11:53 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/12/26 12:26:10 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 static void     printTitle(std::string title)
 {
         std::string     toPrint;
-        int     size = 68;
+        int     size = 72;
         int     n;
 
         toPrint = " " + title + " ";
@@ -44,35 +44,42 @@ int	main(void)
 	srand(time(NULL));
 
 	printTitle("Shrubbery Creation");
-	ShrubberyCreationForm	shrub("home");
-	Bureaucrat				bob("Bob", 1);
-	Bureaucrat				me("Lucie", 140);
+	AForm		*shrub = new ShrubberyCreationForm("home");
+	Bureaucrat	corr("Correcteur", 1);
+	Bureaucrat	me("Lucie", 140);
 
-	bob.executeForm(shrub);
-	bob.signForm(shrub);
-	std::cout << shrub << std::endl;
-	std::cout << bob << std::endl;
-	bob.executeForm(shrub);
-	me.executeForm(shrub);
+	corr.executeForm(*shrub);
+	corr.signForm(*shrub);
+	std::cout << *shrub << std::endl;
+	std::cout << corr << std::endl;
+	corr.executeForm(*shrub);
+	me.executeForm(*shrub);
+	delete shrub;
+
 
 	printTitle("Robotomy Request");
-	RobotomyRequestForm		robotomy("correcteur");
-	Bureaucrat				me2("Lucie", 1);
-	me2.executeForm(robotomy);
-	me2.signForm(robotomy);
-	me2.executeForm(robotomy);
-	me2.executeForm(robotomy);
-	me2.executeForm(robotomy);
-	me2.executeForm(robotomy);
+	AForm		*robotomy = new RobotomyRequestForm("Correcteur");
+	Bureaucrat	me2("Lucie", 1);
+
+	me2.executeForm(*robotomy);
+	me2.signForm(*robotomy);
+	me2.executeForm(*robotomy);
+	me2.executeForm(*robotomy);
+	me2.executeForm(*robotomy);
+	me2.executeForm(*robotomy);
+	delete robotomy;
+	
 	
 	printTitle("Presidential Pardon");
-	PresidentialPardonForm		presidential("correcteur");
-	Bureaucrat					me3("Lucie", 6);
-	me3.executeForm(presidential);
-	me3.signForm(presidential);
-	me3.executeForm(presidential);
+	AForm		*presidential = new PresidentialPardonForm("Correcteur");
+	Bureaucrat	me3("Lucie", 6);
+
+	me3.executeForm(*presidential);
+	me3.signForm(*presidential);
+	me3.executeForm(*presidential);
 	me3.upGrade();
-	me3.executeForm(presidential);
+	me3.executeForm(*presidential);
+	delete presidential;
 
 	return (0);
 }

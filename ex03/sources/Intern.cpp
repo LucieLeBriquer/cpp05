@@ -54,12 +54,12 @@ static const std::string	lowerStr(const std::string str)
 	return (res);
 }
 
-Form	*Intern::makeForm(const std::string formName, const std::string target) const
+AForm	*Intern::makeForm(const std::string formName, const std::string target) const
 {
-	Form	*forms[3] = { new ShrubberyCreationForm(target),
+	AForm	*forms[3] = { new ShrubberyCreationForm(target),
 						new RobotomyRequestForm(target), 
 						new PresidentialPardonForm(target) };
-	Form	*formPtr = NULL;
+	AForm	*formPtr = NULL;
 
 	for (int i = 0; i < 3; i++)
 	{

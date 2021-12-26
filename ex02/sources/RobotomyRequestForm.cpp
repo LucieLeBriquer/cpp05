@@ -17,13 +17,13 @@
 */
 
 RobotomyRequestForm::RobotomyRequestForm(void) :
-	Form("Robotomy request", 72, 45), _target("unknown")
+	AForm("Robotomy request", 72, 45), _target("unknown")
 {
 	return ;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string target) :
-	Form("Robotomy request", 72, 45), _target(target)
+	AForm("Robotomy request", 72, 45), _target(target)
 {
 	return ;
 }
@@ -66,7 +66,7 @@ void	RobotomyRequestForm::execute(const Bureaucrat &bureaucrat) const
 {
 	int	robotomized;
 
-	this->Form::executeCheck(bureaucrat);
+	this->AForm::executeCheck(bureaucrat);
 	std::cout << "*rizZzzz BzzZz rZz* ";
 	robotomized = rand() % 2;
 	if (robotomized)

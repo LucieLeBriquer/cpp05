@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 07:23:49 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/26 11:37:57 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/12/26 12:05:08 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,23 @@ int	main(void)
 	srand(time(NULL));
 
 	printTitle("Formular Creation");
-	Bureaucrat	bob("Bob", 1);
-	Bureaucrat	me("Lucie", 140);
+	Bureaucrat	pres("President", 1);
 	Intern		exploitedIntern;
-	Form		*forms[4];
+	AForm		*forms[4];
 
 	forms[0] = exploitedIntern.makeForm("shrubbery creation", "Target1");
 	forms[1] = exploitedIntern.makeForm("robotomy request", "Target2");
 	forms[2] = exploitedIntern.makeForm("presidential pardon", "Target3");
 	forms[3] = exploitedIntern.makeForm("formular", "Target4");
+
+	for (int i = 0; i < 4; i++)
+	{
+		if (forms[i])
+		{
+			pres.signForm(*(forms[i]));
+			pres.executeForm(*(forms[i]));
+		}
+	}
 
 	for (int i = 0; i < 4; i++)
 		delete forms[i];

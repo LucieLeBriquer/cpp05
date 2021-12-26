@@ -20,9 +20,9 @@
 # define BLUE "\x1B[36m"
 # define END "\033[0m"
 # include <iostream>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -43,8 +43,8 @@ class Bureaucrat
 		int					getGrade(void) const;
 		void				upGrade(void);
 		void				downGrade(void);
-		void				signForm(Form &form) const;
-		void				executeForm(const Form &form) const;
+		void				signForm(AForm &form) const;
+		void				executeForm(const AForm &form) const;
 
 		// exceptions
 		class GradeTooHighException : public std::exception

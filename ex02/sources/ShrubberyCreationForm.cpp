@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 08:51:31 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/24 10:10:36 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/12/26 12:02:57 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 */
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) :
-	Form("Shrubbery creation", 145, 137), _target("unknown")
+	AForm("Shrubbery creation", 145, 137), _target("unknown")
 {
 	return ;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) :
-	Form("Shrubbery creation", 145, 137), _target(target)
+	AForm("Shrubbery creation", 145, 137), _target(target)
 {
 	return ;
 }
@@ -67,11 +67,10 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat) const
 {
 	std::ofstream	file;
 
-	this->Form::executeCheck(bureaucrat);
+	this->AForm::executeCheck(bureaucrat);
 	file.open((_target + "_shrubbery").c_str());
 	if (file.good() == false)
 		throw FileOpeningFail();
-	std::cout << "open ok" << std::endl;
 	file << "              v .   ._, |_  .," << std::endl;
     file << "       \'-._\\/  .  \\ /    |/_" << std::endl;
     file << "           \\\\  _\\, y | \\//" << std::endl;

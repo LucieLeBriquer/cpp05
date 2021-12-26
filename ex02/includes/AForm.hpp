@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 # define RED "\x1B[31m"
 # define GREEN "\x1B[32m"
 # define YELLOW "\x1B[33m"
@@ -23,7 +23,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string	_name;
@@ -32,12 +32,12 @@ class Form
 		bool				_signed;
 		
 	public:
-		Form(void);
-		Form(const std::string name, int gradeSign, int gradeExec);
-		Form(const Form &form);
-		virtual ~Form();
+		AForm(void);
+		AForm(const std::string name, int gradeSign, int gradeExec);
+		AForm(const AForm &form);
+		virtual ~AForm();
 
-		Form	&operator=(const Form &form);
+		AForm	&operator=(const AForm &form);
 
 		// member functions
 		const std::string	getName(void) const;
@@ -74,6 +74,6 @@ class Form
 		};
 };
 
-std::ostream	&operator<<(std::ostream &o, const Form &form);
+std::ostream	&operator<<(std::ostream &o, const AForm &form);
 
 #endif

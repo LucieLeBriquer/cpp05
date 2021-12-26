@@ -17,13 +17,13 @@
 */
 
 PresidentialPardonForm::PresidentialPardonForm(void) :
-	Form("Presidential pardon", 25, 5), _target("unknown")
+	AForm("Presidential pardon", 25, 5), _target("unknown")
 {
 	return ;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target) :
-	Form("Presidential pardon", 25, 5), _target(target)
+	AForm("Presidential pardon", 25, 5), _target(target)
 {
 	return ;
 }
@@ -64,7 +64,7 @@ std::ostream	&operator<<(std::ostream &o, const PresidentialPardonForm &form)
 
 void	PresidentialPardonForm::execute(const Bureaucrat &bureaucrat) const
 {
-	this->Form::executeCheck(bureaucrat);
+	this->AForm::executeCheck(bureaucrat);
 	std::cout << PURPLE << _target << END << " was forgiven by Zafor Beeblebrox" << std::endl;
 }
 

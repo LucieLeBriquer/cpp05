@@ -14,9 +14,9 @@
 # define ROBOTOMYREQUESTFORM_HPP
 # include <ctime>
 # include <cstdlib>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class RobotomyRequestForm : public Form
+class RobotomyRequestForm : public AForm
 {
 	private:
 		const std::string	_target;
