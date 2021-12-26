@@ -1,7 +1,7 @@
 CC			= clang++ -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
-NAME		= ./execute
-NAME_SHORT	= execute
+NAME		= ./intern
+NAME_SHORT	= intern
 
 INCS_DIR	= ./includes/
 MAIN_INC	= -I$(INCS_DIR)
