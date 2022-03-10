@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 11:01:58 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/24 11:01:58 by lle-briq         ###   ########.fr       */
+/*   Updated: 2022/03/10 15:29:43 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,6 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &o, const RobotomyRequestForm &form)
-{
-	o << "[" << form.getName() << "]" << std::endl;
-	o << "\t" << "signed : " << form.getSigned() << std::endl;
-	o << "\t" << "target : " << form.getTarget() << std::endl;
-	o << "\t" << "grade needed to sign : " << form.getGradeSign() << std::endl;
-	o << "\t" << "grade needed to execute : " << form.getGradeExec() << std::endl;
-	return (o);
-};
-
 /*
 **		MEMBER FUNCTIONS
 */
@@ -74,9 +64,4 @@ void	RobotomyRequestForm::execute(const Bureaucrat &bureaucrat) const
 	else
 		std::cout << PURPLE << _target << END << " was not robotomized" << std::endl;
 	
-}
-
-const std::string	RobotomyRequestForm::getTarget(void) const
-{
-	return (_target);
 }

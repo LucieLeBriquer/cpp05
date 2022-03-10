@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 11:00:23 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/26 11:00:23 by lle-briq         ###   ########.fr       */
+/*   Updated: 2022/03/10 15:50:30 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ class Intern
 
 		AForm	*makeForm(const std::string formName, const std::string target) const;
 };
+
+typedef AForm *(*constructorPtr)(const std::string);
 
 #endif

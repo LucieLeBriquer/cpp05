@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 11:24:14 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/26 11:26:31 by lle-briq         ###   ########.fr       */
+/*   Updated: 2022/03/10 15:51:48 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,31 +54,52 @@ static const std::string	lowerStr(const std::string str)
 	return (res);
 }
 
-AForm	*Intern::makeForm(const std::string formName, const std::string target) const
+static AForm	*newShrubbery(const std::string target)
 {
-	AForm	*forms[3] = { new ShrubberyCreationForm(target),
-						new RobotomyRequestForm(target), 
-						new PresidentialPardonForm(target) };
-	AForm	*formPtr = NULL;
+	return (new ShrubberyCreationForm(target));
+}
+
+static AForm	*newRobotomy(const std::string target)
+{
+	return (new RobotomyRequestForm(target));
+}
+
+static AForm	*newPresidential(const std::string target)
+{
+	return (new PresidentialPardonForm(target));
+}
+
+static int		getFormNumber(const std::string formName)
+{
+	std::string		formNames[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+	int				choosen = -1;
 
 	for (int i = 0; i < 3; i++)
 	{
-		if (lowerStr(formName) == lowerStr(forms[i]->getName()))
+		if (lowerStr(formName) == formNames[i])
 		{
-			formPtr = forms[i];
+			choosen = i;
 			break;
 		}
 	}
-	for (int i = 0; i < 3; i++)
-	{
-		if (formPtr != forms[i])
-			delete forms[i];
-	}
+	return (choosen);
+}
+
+AForm	*Intern::makeForm(const std::string formName, const std::string target) const
+{
+	constructorPtr	funCreations[3] = {&newShrubbery, &newRobotomy, &newPresidential};
+	int				choosen;
+	AForm			*formPtr = NULL;
+
+	choosen = getFormNumber(formName);
 	std::cout << YELLOW << "Intern" << END;
-	if (formPtr)	
+	if (choosen >= 0)
+	{
+		formPtr = funCreations[choosen](target);
 		std::cout << " creates " << GREEN << formPtr->getName() << END << " formular" << std::endl;
+	}
 	else
 		std::cout << " cannot create " << GREEN << formName << END << " because " << BLUE << "it's unknown" << END << std::endl;
 	return (formPtr);
-	
+
 }

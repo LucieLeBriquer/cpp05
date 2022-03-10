@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 08:51:31 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/26 12:02:57 by lle-briq         ###   ########.fr       */
+/*   Updated: 2022/03/10 15:29:40 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,6 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &o, const ShrubberyCreationForm &form)
-{
-	o << "[" << form.getName() << "]" << std::endl;
-	o << "\t" << "signed : " << form.getSigned() << std::endl;
-	o << "\t" << "target : " << form.getTarget() << std::endl;
-	o << "\t" << "grade needed to sign : " << form.getGradeSign() << std::endl;
-	o << "\t" << "grade needed to execute : " << form.getGradeExec() << std::endl;
-	return (o);
-};
-
 /*
 **		MEMBER FUNCTIONS
 */
@@ -84,9 +74,4 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat) const
     file << "                 |    |" << std::endl;
 	file << "----------------/ ,  . \\--------._" << std::endl;
 	file.close();
-}
-
-const std::string	ShrubberyCreationForm::getTarget(void) const
-{
-	return (_target);
 }

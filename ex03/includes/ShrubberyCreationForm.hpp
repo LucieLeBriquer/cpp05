@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 08:41:23 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/24 08:41:23 by lle-briq         ###   ########.fr       */
+/*   Updated: 2022/03/10 15:29:35 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &shrubberyForm);
 		
 		void					execute(const Bureaucrat &bureaucrat) const;
-		const std::string		getTarget(void) const;
 };
-
-std::ostream	&operator<<(std::ostream &o, const ShrubberyCreationForm &shrubberyForm);
 
 #endif
