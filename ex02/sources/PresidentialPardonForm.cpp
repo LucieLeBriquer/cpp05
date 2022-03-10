@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 16:41:16 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/25 16:41:16 by lle-briq         ###   ########.fr       */
+/*   Updated: 2022/03/10 15:29:46 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,6 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPard
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &o, const PresidentialPardonForm &form)
-{
-	o << "[" << form.getName() << "]" << std::endl;
-	o << "\t" << "signed : " << form.getSigned() << std::endl;
-	o << "\t" << "target : " << form.getTarget() << std::endl;
-	o << "\t" << "grade needed to sign : " << form.getGradeSign() << std::endl;
-	o << "\t" << "grade needed to execute : " << form.getGradeExec() << std::endl;
-	return (o);
-};
-
 /*
 **		MEMBER FUNCTIONS
 */
@@ -66,9 +56,4 @@ void	PresidentialPardonForm::execute(const Bureaucrat &bureaucrat) const
 {
 	this->AForm::executeCheck(bureaucrat);
 	std::cout << PURPLE << _target << END << " was forgiven by Zafor Beeblebrox" << std::endl;
-}
-
-const std::string	PresidentialPardonForm::getTarget(void) const
-{
-	return (_target);
 }

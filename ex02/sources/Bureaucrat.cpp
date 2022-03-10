@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 06:42:04 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/24 10:41:32 by lle-briq         ###   ########.fr       */
+/*   Updated: 2022/03/10 15:21:05 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,15 +75,15 @@ int	Bureaucrat::getGrade(void) const
 
 void	Bureaucrat::upGrade(void)
 {
-	if (_grade == 1)
-		return ;
+	if (_grade <= 1)
+		throw GradeTooHighException();
 	_grade--;
 }
 
 void	Bureaucrat::downGrade(void)
 {
-	if (_grade == 150)
-		return ;
+	if (_grade >= 150)
+		throw GradeTooLowException();
 	_grade++;
 }
 
