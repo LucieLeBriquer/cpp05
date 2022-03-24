@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 07:42:27 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/24 08:28:39 by lle-briq         ###   ########.fr       */
+/*   Updated: 2022/03/24 14:16:57 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ class AForm
 		bool				getSigned(void) const;
 		void				beSigned(const Bureaucrat &bureaucrat);
 		virtual void		execute(const Bureaucrat &bureaucrat) const = 0;
-		virtual void		executeCheck(const Bureaucrat &bureaucrat) const;
+		void				executeCheck(const Bureaucrat &bureaucrat) const;
 
 		// exceptions
 		class GradeTooHighException : public std::exception

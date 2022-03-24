@@ -30,7 +30,7 @@ AForm::AForm(const std::string name, int gradeSign, int gradeExec) :
 		throw GradeTooLowException();
 }
 
-AForm::AForm(const AForm &form) : _gradeSign(form._gradeSign), _gradeExec(form._gradeExec)
+AForm::AForm(const AForm &form) :  _name(form._name), _gradeSign(form._gradeSign), _gradeExec(form._gradeExec)
 {
 	*this = form;
 }
