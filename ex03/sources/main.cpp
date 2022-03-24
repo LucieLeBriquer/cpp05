@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 07:23:49 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/26 12:05:08 by lle-briq         ###   ########.fr       */
+/*   Updated: 2022/03/24 14:23:25 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	main(void)
 	{
 		if (forms[i])
 		{
+			std::cout << std::endl << *(forms[i]);
 			pres.signForm(*(forms[i]));
 			pres.executeForm(*(forms[i]));
 		}
