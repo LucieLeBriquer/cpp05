@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 07:47:01 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/12/24 07:47:01 by lle-briq         ###   ########.fr       */
+/*   Updated: 2022/03/24 14:11:30 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Form::Form(const std::string name, int gradeSign, int gradeExec) :
 		throw GradeTooLowException();
 }
 
-Form::Form(const Form &form) : _gradeSign(form._gradeSign), _gradeExec(form._gradeExec)
+Form::Form(const Form &form) : _name(form._name), _gradeSign(form._gradeSign), _gradeExec(form._gradeExec)
 {
 	*this = form;
 }
